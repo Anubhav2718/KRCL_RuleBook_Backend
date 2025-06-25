@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from langchain_community.llms import Ollama
 from langchain.agents import Tool, initialize_agent, AgentType
 from langchain_community.vectorstores import FAISS
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings  # Correct import
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 import os
