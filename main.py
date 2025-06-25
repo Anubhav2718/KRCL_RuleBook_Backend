@@ -73,3 +73,11 @@ async def ask_query(query: Query):
         "action": result["intermediate_steps"][0][0].tool if result["intermediate_steps"] else "",
         "observation": result["intermediate_steps"][0][1] if result["intermediate_steps"] else ""
     }
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # For development, restrict in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

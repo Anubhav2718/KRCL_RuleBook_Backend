@@ -10,3 +10,4 @@ langchain_groq
 sentence-transformers>=2.2.2
 httpx>=0.28.0
 torch>=2.0.0
+starlette>=0.46.0
