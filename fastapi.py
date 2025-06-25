@@ -61,6 +61,10 @@ app = FastAPI()
 class Query(BaseModel):
     input: str
 
+@app.get("/")
+def read_root():
+    return {"message": "KRCL RuleBot backend is live!"}
+
 @app.post("/ask")
 async def ask_query(query: Query):
     result = agent_executor.invoke({"input": query.input, "chat_history": []})
