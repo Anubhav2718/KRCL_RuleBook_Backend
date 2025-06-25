@@ -8,6 +8,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 import os
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 groq_api_key=os.environ['GROQ_API_KEY']
