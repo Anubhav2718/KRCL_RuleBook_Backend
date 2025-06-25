@@ -1,19 +1,19 @@
-# Use Python 3.10 as base image
+# Use Python 3.10 base image
 FROM python:3.10-slim
 
-# Set working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy requirements and install dependencies
+# Copy dependency file and install requirements
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy the FastAPI app
+# Copy all source code (including main.py and vectorstore folders)
 COPY . .
 
-# Expose the port FastAPI runs on
+# Expose the FastAPI default port
 EXPOSE 8000
 
-# Run FastAPI with Uvicorn
-CMD ["uvicorn", "fastapi:app", "--host", "0.0.0.0", "--port", "8000"]
+# Command to run the FastAPI app with Uvicorn
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 

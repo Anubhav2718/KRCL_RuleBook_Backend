@@ -1,5 +1,5 @@
 # app.py (FastAPI)
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from pydantic import BaseModel
 from langchain_community.llms import Ollama
 from langchain.agents import Tool, initialize_agent, AgentType
