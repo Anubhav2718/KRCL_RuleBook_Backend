@@ -1,31 +1,53 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*.pyo
+*.pyd
+
+# Package metadata
 *.egg-info/
-.env
+*.dist-info/
 
 # Virtual environments
 venv/
 env/
 .venv/
 .conda/
+revn/
 
-# OS
+# Environment variables
+.env
+.env.*
+
+# OS-specific files
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Jupyter / IPython
+# Jupyter/IPython notebooks
 .ipynb_checkpoints/
 
-# VSCode
+# IDEs/editors
 .vscode/
+.idea/
 
 # Streamlit
 .streamlit/
 
-# FAISS index
+# FAISS index files
 *.faiss
 
-# Anaconda
-*.conda
-*.ipynb
+# Build/Distribution
+build/
+dist/
+*.log
+
+# PDF cache/output
+*.pdf
+
+# LangChain generated caches
+.cache/
+langchain/
+
+# PyInstaller
+*.spec

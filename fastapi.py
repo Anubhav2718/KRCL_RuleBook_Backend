@@ -5,6 +5,12 @@ from langchain_community.llms import Ollama
 from langchain.agents import Tool, initialize_agent, AgentType
 from langchain_community.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
+from dotenv import load_dotenv
+from langchain_groq import ChatGroq
+import os
+
+load_dotenv()
+groq_api_key=os.environ['GROQ_API_KEY']
 
 # Load embeddings & vector DB
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -29,12 +35,10 @@ def combined_retriever_tool(query: str) -> str:
     return "\n\n".join([doc.page_content for doc in combined]) if combined else "No relevant content found."
 
 # LLM
-llm = Ollama(
-    model="mistral",
-    temperature=0,
-    system="You are a safety-critical railway rule expert. Never guess."
+llm = ChatGroq(
+    groq_api_key=os.environ["GROQ_API_KEY"],
+    model_name="llama3-8b-8192"
 )
-
 # Agent setup
 tools = [
     Tool(name="General and Subsidiary Rules", func=gsr_retriever_tool, description="G&SR tool"),
